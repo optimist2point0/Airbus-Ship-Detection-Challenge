@@ -22,3 +22,23 @@ To deal with this issue I split the images without ships and strutify by color g
 
 ***
 In addition I used simple data augmentation (zoom and flips only). My model has default **U-Net** architecture. For model loss I used $`0.2*binarycrossentropy+ 0.8*(1 - dicecoef)`$ and **Adam** as optimizer. The model was fitting 10 epochs. I reached 0.78 private score by submission on kaggle.
+
+## Install requirements:
+pip install -r requirement.txt
+
+
+## Inference
+Inference run example:
+
+python inference.py --test_folder_path "data/test_v2"
+
+python inference.py --test_folder_path "data/test_v2" --result_csv_path "submission.csv"
+
+
+## Train
+
+Download data from competition and unzip.
+
+Training run example:
+
+python train.py --folder_image_path "data/train_v2/" --train_labels_path "data/train_ship_segmentations_v2.csv" --result_model_path "weights/" --nb_epoch 10
